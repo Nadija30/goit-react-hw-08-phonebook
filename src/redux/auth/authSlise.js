@@ -47,20 +47,20 @@ const logOutAuthFulfilled = state => {
 const refreshUserAuthPending = state => {
   state.isLoggedIn = false;
   state.error = null;
-  state.isCurrentUser = true;
+  state.isRefreshing = true;
 };
 
 const refreshUserAuthFulfilled = (state, { payload }) => {
   state.isLoggedIn = true;
   state.user = payload;
   state.error = null;
-  state.isCurrentUser = false;
+  state.isRefreshing = false;
 };
 
 const refreshUserAuthrRejected = (state, { payload }) => {
   state.isLoggedIn = false;
   state.error = payload;
-  state.isCurrentUser = false;
+  state.isRefreshing = false;
 };
 
 const arrThunk = [register, logIn, logOut];
