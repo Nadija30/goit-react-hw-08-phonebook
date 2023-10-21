@@ -4,11 +4,12 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import css from './Layaut.module.css';
 
 export const Layout = () => {
   return (
     <>
-      <header>
+      <header className={css.header}>
         <AppBar />
       </header>
       <main>

@@ -1,3 +1,4 @@
+import css from './LoginForm.module.css';
 import { toast } from 'react-toastify';
 import { logIn } from 'redux/auth/authThunk';
 const { useState } = require('react');
@@ -41,35 +42,41 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={hendleSubmitLogin}>
-      <label>
-        Email
-        <input
-          type="email"
-          name="email"
-          value={email}
-          pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/."
-          title="Email may contain letters, numbers, an apostrophe, and must be followed by '@' domain name '.' domain suffix. For example Taras@ukr.ua, adrian@gmail.com, JacobM3rcer@hotmail.com"
-          required
-          placeholder="Enter email ..."
-          onChange={handleChangeInput}
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          name="password"
-          value={password}
-          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-          title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters. For example TgeV23592, 3Greioct."
-          required
-          placeholder="Enter password ..."
-          onChange={handleChangeInput}
-        />
-      </label>
-      <button type="submit">LogIn</button>
-    </form>
+    <div className={css.container}>
+      <form className={css.form} onSubmit={hendleSubmitLogin}>
+        <label className={css.label}>
+          Email
+          <input
+            className={css.input}
+            type="email"
+            name="email"
+            value={email}
+            pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/."
+            title="Email may contain letters, numbers, an apostrophe, and must be followed by '@' domain name '.' domain suffix. For example Taras@ukr.ua, adrian@gmail.com, JacobM3rcer@hotmail.com"
+            required
+            placeholder="Enter email ..."
+            onChange={handleChangeInput}
+          />
+        </label>
+        <label className={css.label}>
+          Password
+          <input
+            className={css.input}
+            type="password"
+            name="password"
+            value={password}
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+            title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters. For example TgeV23592, 3Greioct."
+            required
+            placeholder="Enter password ..."
+            onChange={handleChangeInput}
+          />
+        </label>
+        <button className={css.button} type="submit">
+          LogIn
+        </button>
+      </form>
+    </div>
   );
 };
 

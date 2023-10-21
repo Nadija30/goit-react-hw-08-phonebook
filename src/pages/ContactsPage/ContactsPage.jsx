@@ -12,14 +12,14 @@ import {
 } from 'redux/contacts/contactsSelectors';
 import { EmptyContactsList } from 'components/EmptyContactList/EmptyContactList';
 import { ContactList } from 'components/ContactList/ContactList';
-
+import css from './ContactsPage.module.css';
 const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const phoneBook = useSelector(selectContactsList);
 
   return (
-    <div>
+    <div className={css.container}>
       <ContactForm />
       <Filter />
       {error ? <Error /> : <ContactList />}

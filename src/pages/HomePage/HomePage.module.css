@@ -1,7 +1,21 @@
 .contentPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 38px 48px;
-  height: 100dvb;
-
+  height: 50%;
   border-radius: 32px 32px 0 0;
   background-color: #f9f9f9;
+}
+.title {
+  text-align: center;
+  padding-bottom: 10px;
+}
+.button {
+  height: 30px;
+  width: 100px;
+  padding: 4px;
+  font-weight: 500px;
+  background-color: #fda117;
 }

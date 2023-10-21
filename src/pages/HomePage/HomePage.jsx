@@ -10,18 +10,19 @@ export default function HomePage() {
     <div className={css.contentPageContainer}>
       {isLoggedIn ? (
         <>
-          <h1>
+          <h1 className={css.title}>
             Hi, {user.name}! <br />
             Welcome to your phonebook.
           </h1>
         </>
       ) : (
         <>
-          <h1>
-            Hello! I'm your phonebook.
-            <p>Please log in to your account or register.</p>
-          </h1>
-          <button>
+          <h1 className={css.title}>Hello! I'm your phonebook.</h1>
+          <h2 className={css.title}>
+            Please log in to your account or register.
+          </h2>
+
+          <button className={css.button}>
             <NavLink to="/login">Sign In</NavLink>
           </button>
         </>
