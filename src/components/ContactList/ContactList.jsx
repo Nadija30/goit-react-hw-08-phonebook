@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContactsList } from 'redux/contacts/slice';
+import { toast } from 'react-toastify';
+import { selectContactsList } from 'redux/contacts/contactsSelectors';
 import { deleteContactsThunk, getContactsThunk } from 'redux/contacts/thunk';
 import { selectContactsFilter } from 'redux/filters/slice';
 import css from './ContactList.module.css';
@@ -19,7 +20,16 @@ export const ContactList = () => {
   );
 
   const deleteContact = contactId => {
-    dispatch(deleteContactsThunk(contactId));
+    dispatch(deleteContactsThunk(contactId))
+      .unwrap()
+      .then(originalPromiseResult => {
+        toast.success(
+          `${originalPromiseResult.name} successfully deleted from contacts`
+        );
+      })
+      .catch(() => {
+        toast.failure("Sorry, something's wrong");
+      });
   };
   return (
     <ul className={css.list}>

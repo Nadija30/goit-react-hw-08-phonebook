@@ -2,7 +2,8 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { selectContactsList } from 'redux/contacts/slice';
+import { selectContactsList } from 'redux/contacts/contactsSelectors';
+
 import { createContactsThunk } from 'redux/contacts/thunk';
 import css from './ContactForm.module.css';
 
@@ -28,8 +29,16 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(createContactsThunk(newObj));
-
+    dispatch(createContactsThunk(newObj))
+      .unwrap()
+      .then(originalPromiseResult => {
+        toast.success(
+          `${originalPromiseResult.name} successfully added to contacts`
+        );
+      })
+      .catch(() => {
+        toast.failure("Sorry, something's wrong");
+      });
     reset();
   };
 
@@ -56,6 +65,7 @@ export const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           onChange={handleChange}
           value={name}
+          placeholder="Enter name ..."
           required
         />
       </label>
@@ -69,6 +79,7 @@ export const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           onChange={handleChange}
           value={number}
+          placeholder="Enter number ..."
           required
         />
       </label>

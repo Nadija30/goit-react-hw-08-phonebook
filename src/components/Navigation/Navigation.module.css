@@ -1,0 +1,7 @@
+.NavLink {
+  color: #212121;
+}
+.navigation {
+  display: flex;
+  column-gap: 3px;
+}
