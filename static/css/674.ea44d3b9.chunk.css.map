@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/674.ea44d3b9.chunk.css","mappings":"AAAA,sCAKE,wBAAyB,CADzB,2BAA4B,CAF5B,aAAc,CADd,iBAKF","sources":["pages/HomePage/HomePage.module.css"],"sourcesContent":[".contentPageContainer {\n  padding: 38px 48px;\n  height: 100dvb;\n\n  border-radius: 32px 32px 0 0;\n  background-color: #f9f9f9;\n}\n"],"names":[],"sourceRoot":""}
